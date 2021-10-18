@@ -1,11 +1,16 @@
 
 div.step1 {
     display: grid;
-    grid-template-columns: repeat(10,4vw);
-    grid-template-rows: repeat(10,4vh);
+    grid-template-columns: repeat(10,6vw);
+    grid-template-rows: repeat(10,6vh);
 }
 
 h6 {
     background-color: blue;
     color: white;
 }
+
+#switchColorButton {
+    grid-column: 2;
+}
+

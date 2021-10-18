@@ -51,6 +51,18 @@
             }
         }
 
+        function changeColumn(id_bt, id_input_column) {
+            console.log(`${id_bt} ${id_input_column}`)
+            var bt = document.getElementById(id_bt)
+            var col = document.getElementById(id_input_column).value
+            console.log(col)
+            bt.setAttribute("style", `grid-column: ${col};`)
+        }
+
+        function changeRow(id) {
+            // change ROW ...
+        }
+
     </script>
     <!-- Ajout de contenu directement dans le html -->
     <!-- <h1>My Name is Bla_2</h1> -->
@@ -58,11 +70,14 @@
         <!-- <h6> Click on Button to transform date in red</h1> -->
         <button id="switchColorButton" onClick="switchColor()"> MakeMeRed </button>
     </div>
-    <!-- <br>
-    <div>
-        <label> Prenom </label>
-        <input type="text" id="prenom">
-    </div> -->
+
+    <div class="step2">
+        <label> Column Position </label>
+        <input id="columnGrid" type="number">
+        <button id="changeColumn" onClick="changeColumn(switchColorButton, columnGrid)"> changeColumn </button>
+        <!-- RAJOUTER MODIFICATION ROWS -->
+    </div>
+
 
 </body>
 </html>
