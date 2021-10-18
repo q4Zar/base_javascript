@@ -1,23 +1,50 @@
+    <!DOCTYPE html>
+    <html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Today's Date</title>
+        <script>
+            // var : quand on reutilise la variable
+            // var
+            // const : la valeur de la variable ne peux etre modifier
+            // const
 
-<!DOCTYPE html>
-<html lang="en-US">
+            // let : quand on ne reutilise pas la variable
+            console.log('Date du Jour:')
+            let d = new Date()
+            console.log(d)
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Today's Date</title>
-    <script>
-        let d = new Date();
-        alert("Today's date is " + d);
-    </script>
-</head>
+            // alert("Today's date is " + d);
+            alert(`Today's date is ${d}`)
+        </script>
+    </head>
+    <body>
+        <!-- Ajout de contenu depuis un script -->
+        <script>
 
-<body>
+            // document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+            var div1 = document.createElement('div') // a partir de l'object document j'utilise la function createElement pour ajouter une div
+            div1.id = 'makeMeRed'
+            div1.innerHTML = `Today's date is ${d}`
+            document.body.appendChild(div1)
 
-    <script>
-        document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
-    </script>
+            function makeMeRed() {
+                var el = document.getElementById('makeMeRed')
+                // el.style.color = 'red'
+                el.setAttribute("style", "color:red;")
+            }
 
-</body>
+        </script>
+        <!-- Ajout de contenu directement dans le html -->
+        <!-- <h1>My Name is Bla_2</h1> -->
+        <h1> Click on Button to transform date in red</h1>
+        <button onClick="makeMeRed()"> MakeMeRed </button>
+        <br>
+        <div>
+            <label> Prenom </label>
+            <input type="text" id="prenom">
+        </div>
 
-</html>
+    </body>
+    </html>
