@@ -1,0 +1,4 @@
+- installer nodejs version 14 : https://nodejs.org/en/
+- ouvrir un invite de commande (Ctrl + J sur VS Code)
+- tapper `node --version` (cense afficher : v14.18.1)
+- redemarrer votre machine
