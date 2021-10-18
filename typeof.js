@@ -1,0 +1,5 @@
+console.log(typeof {})
+console.log(typeof [])
+console.log(typeof "string")
+console.log(typeof 8)
+console.log(typeof 8.56)
