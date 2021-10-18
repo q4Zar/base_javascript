@@ -1,4 +1,3 @@
-<!-- UPDATE -->
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
@@ -10,7 +9,6 @@
         // var : quand on reutilise la variable
         // var
         // const : la valeur de la variable ne peux etre modifier
-        // const
 
         // let : quand on ne reutilise pas la variable
         console.log('Date du Jour:')
@@ -52,10 +50,9 @@
             }
         }
 
-        function changeColumn(id_bt, id_input_column) {
-            console.log(`${id_bt} ${id_input_column}`)
-            var bt = document.getElementById(id_bt)
-            var col = document.getElementById(id_input_column).value
+        function changeColumn() {
+            var bt = document.getElementById('switchColorButton')
+            var col = document.getElementById('columnGrid').value
             console.log(col)
             bt.setAttribute("style", `grid-column: ${col};`)
         }
@@ -75,7 +72,7 @@
     <div class="step2">
         <label> Column Position </label>
         <input id="columnGrid" type="number">
-        <button id="changeColumn" onClick="changeColumn(switchColorButton, columnGrid)"> changeColumn </button>
+        <button id="changeColumn" onClick="changeColumn()"> changeColumn </button>
         <!-- RAJOUTER MODIFICATION ROWS -->
     </div>
 
