@@ -16,7 +16,7 @@ console.log(`Contenu de la variable chaineDeCaracteres = ${chaineDeCaracteres}`)
 console.log(`Contenu de la variable nom` + nom )
 console.log(`Contenu de la variable chaineDeCaracteres = ` + chaineDeCaracteres)
 
-// Presentons nous
+// // Presentons nous
 var prenom = "Damien"
 var nomDeFamille = "DELBREIL"
 var dateDeNaissance = "16 Juin 1989"
@@ -50,15 +50,62 @@ var listOfString = [
     "Python"
 ]
 
+// ---
 var dictionnaire = {
     prenom: "Damien",
     nomDeFamille: "Delbreil",
     dateDeNaissance: "16 Juin 1989",
     lieuDeNaissance: "Biarritz",
-    // correspond a :
-    // "prenom" : "Damien",
-    // "nomDeFamille" : "Delbreil",
-    // "dateDeNaissance" : "16 Juin 1989",
-    // "lieuDeNaissance" : "Biarritz",
+    passeport: {
+        id: "12309112381723"
+    },
+    lieuDeResidence: "Marseille"
 }
-console.log(dictionnaire)
+
+// --- --- --- ---
+
+function displayIdentityFromParams(prenom, nomDeFamille, dateDeNaissance, lieuDeNaissance) {
+    // Ecris la routine (ce qu'il se passe quand tu l'executes)
+    console.log(`Je soussigne ${prenom} ${nomDeFamille} ne le ${dateDeNaissance} a ${lieuDeNaissance}`)
+    // console.log(`Passeport ID : ${dict.passeport.id}`)
+    // console.log(`Actuellement a : ${dict.lieuDeResidence}`)
+}
+displayIdentityFromParams(dictionnaire.prenom, dictionnaire.nomDeFamille, dictionnaire.dateDeNaissance, dictionnaire.lieuDeNaissance)
+
+// --- --- ---
+var liste = [
+    'Damien', // 0
+    'Delbreil', // 1
+    '16 Juin 1989', // 2
+    'Biarritz' // 3
+]
+function displayIdentityFromList(liste) {
+    console.log(`Je soussigne ${liste[0]} ${liste[1]} ne le ${liste[2]} a ${liste[3]}`)
+}
+displayIdentityFromList(liste)
+
+
+
+
+// Ecrire une fonction qui affiche les elements du dictionnaire
+// Declare une fonction
+// function <nomDeLaFonction>(<parametreDeLaFonction>)
+function displayIdentityFromDict(dict) {
+    // Ecris la routine (ce qu'il se passe quand tu l'executes)
+    console.log(`Je soussigne ${dict.prenom} ${dict.nomDeFamille} ne le ${dict.dateDeNaissance} a ${dict.lieuDeNaissance}`)
+    console.log(`Passeport ID : ${dict.passeport.id}`)
+    console.log(`Actuellement a : ${dict.lieuDeResidence}`)
+}
+displayIdentityFromDict(dictionnaire)
+
+
+// afficher chaque entree du dictionnaire qui equivaut a une clef et une valeur (<key>: <value>)
+function displayEveryKeyValueFromDict(dict) {
+    //
+    for (var [key, value] of Object.entries(dict)) {
+        //
+        console.log(`${key}: ${value}`)
+    }
+}
+displayEveryKeyValueFromDict(dictionnaire)
+
