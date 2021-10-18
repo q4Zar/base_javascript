@@ -16,7 +16,7 @@
         console.log(d)
 
         // alert("Today's date is " + d);
-        alert(`Today's date is ${d}`)
+        // alert(`Today's date is ${d}`)
     </script>
 </head>
 <body>
@@ -54,6 +54,8 @@
             var bt = document.getElementById('switchColorButton')
             var col = document.getElementById('columnGrid').value
             console.log(col)
+            // var style = bt.style
+            // console.log(style.gridColumn)
             bt.setAttribute("style", `grid-column: ${col};`)
         }
 
