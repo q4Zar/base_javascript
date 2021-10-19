@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Today's Date</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <script>
         // var : quand on reutilise la variable
@@ -76,6 +80,45 @@
         <input id="columnGrid" type="number">
         <button id="changeColumn" onClick="changeColumn()"> changeColumn </button>
         <!-- RAJOUTER MODIFICATION ROWS -->
+    </div>
+
+    <div class="step3">
+        <form>
+            <fieldset class="uk-fieldset">
+        
+                <legend class="uk-legend">Legend</legend>
+        
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Input">
+                </div>
+        
+                <div class="uk-margin">
+                    <select class="uk-select">
+                        <option>Option 01</option>
+                        <option>Option 02</option>
+                    </select>
+                </div>
+        
+                <div class="uk-margin">
+                    <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+                </div>
+        
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
+                    <label><input class="uk-radio" type="radio" name="radio2"> B</label>
+                </div>
+        
+                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input class="uk-checkbox" type="checkbox" checked> A</label>
+                    <label><input class="uk-checkbox" type="checkbox"> B</label>
+                </div>
+        
+                <div class="uk-margin">
+                    <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1">
+                </div>
+        
+            </fieldset>
+        </form>
     </div>
 
 
