@@ -32,17 +32,56 @@
                         console.log(element.last_name)
                         console.log(element.email)
                         console.log(element.avatar)
-                        // 
+                        //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        // card
                         var card = document.createElement('div')
                         card.classList.add('uk-card')
 
-                        var email = document.createElement('div')
-                        email.classList.add('uk-card-body')
-                        email.innerHTML = element.email
+                        // cardMediaTop
+                        var cardMediaTop = document.createElement('div')
+                        cardMediaTop.classList.add('uk-card-body')
 
-                        card.appendChild(email)
-
+                        // avatar
+                        var avatar = document.createElement('img')
+                        avatar.src = element.avatar
+                        // <img src="https://reqres.in/img/faces/2-image.jpg">
+                        avatar.classList.add('avatar')
+                        
+                        // appendChilds
+                        cardMediaTop.appendChild(avatar)
+                        card.appendChild(cardMediaTop)
                         document.body.appendChild(card)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         // console.log(`${element.email}`)
                     })
                     // var div1 = document.createElement('div') // a partir de l'object document j'utilise la function createElement pour ajouter une div

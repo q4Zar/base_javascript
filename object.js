@@ -26,7 +26,9 @@ function displayIdentityFromDict(dict) {
 }
 displayIdentityFromDict(dictionnaire)
 
-
+function createElement(type_of_html_element) {
+    // document.body ...
+}
 
 // function <nomDeLaFunc> (<param1>, <param2>)
 function displayIdentityFromParams(prenom, nomDeFamille, dateDeNaissance, lieuDeNaissance) {
