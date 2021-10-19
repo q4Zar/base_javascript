@@ -11,29 +11,78 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js"></script>
+    <!-- Axios  -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div>
-        <ul uk-accordion>
-            <li class="uk-open">
-                <a class="uk-accordion-title" href="#">Item 1</a>
-                <div class="uk-accordion-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </li>
-            <li>
-                <a class="uk-accordion-title" href="#">Item 2</a>
-                <div class="uk-accordion-content">
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-                </div>
-            </li>
-            <li>
-                <a class="uk-accordion-title" href="#">Item 3</a>
-                <div class="uk-accordion-content">
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
-                </div>
-            </li>
-        </ul>
+    <script>
+        const getUsers = () => {
+            axios.get('https://reqres.in/api/users')
+                .then(response => {
+                    // call HTTP Succes
+                    // Acceder a la donnee retour dans response.data.data
+                    const users = response.data.data;
+                    // 
+                    users.forEach(element => {
+                        // first_name
+                        // last_name
+                        // avatar
+                        // email
+                        console.log(element.first_name)
+                        console.log(element.last_name)
+                        console.log(element.email)
+                        console.log(element.avatar)
+                        // 
+                        var card = document.createElement('div')
+                        card.classList.add('uk-card')
+
+                        var email = document.createElement('div')
+                        email.classList.add('uk-card-body')
+                        email.innerHTML = element.email
+
+                        card.appendChild(email)
+
+                        document.body.appendChild(card)
+                        // console.log(`${element.email}`)
+                    })
+                    // var div1 = document.createElement('div') // a partir de l'object document j'utilise la function createElement pour ajouter une div
+                    // div1.id = 'date'
+                    // div1.innerHTML = `Today's date is ${d}`
+                    // document.body.appendChild(div1)
+            })
+            .catch(error => {
+                // if fail
+                console.error(error)
+            });
+            };
+        getUsers();
+    </script>
+    <!-- <div>
+        <div>
+            <ul uk-accordion>
+                <li class="uk-open">
+                    <a class="uk-accordion-title" href="#">Item 1</a>
+                    <div class="uk-accordion-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Item 2</a>
+                    <div class="uk-accordion-content">
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">Item 3</a>
+                    <div class="uk-accordion-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
+    <div>
+
+    </div> -->
 </body>
 </html>
