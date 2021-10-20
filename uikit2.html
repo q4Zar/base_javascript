@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today's Date</title>
+    <link rel="stylesheet" href="style.css">
+        <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js"></script>
+</head>
+<body>
+    <script>
+
+        var amazon_db_telephones = [
+            {
+                nom: 'DOOGEE S97 PRO',
+                prix: 186,
+                description: 'android13',
+                img: './tel1.webp'
+            },
+            {
+                nom: '',
+                prix: 336,
+                description: 'android14',
+                img: './tel2.webp'
+            },
+            {
+                nom: 'DOOGEE S97 PRO',
+                prix: 186,
+                description: 'android13',
+                img: './tel1.webp'
+            },
+            {
+                nom: '',
+                prix: 336,
+                description: 'android14',
+                img: './tel2.webp'
+            },
+            {
+                nom: 'DOOGEE S97 PRO',
+                prix: 186,
+                description: 'android13',
+                img: './tel1.webp'
+            },
+            {
+                nom: '',
+                prix: 336,
+                description: 'android14',
+                img: './tel2.webp'
+            },
+            {
+                nom: 'DOOGEE S97 PRO',
+                prix: 186,
+                description: 'android13',
+                img: './tel1.webp'
+            },
+            {
+                nom: '',
+                prix: 336,
+                description: 'android14',
+                img: './tel2.webp'
+            },
+        ]
+        const sortableItemTemplate = ({ nom, prix, description, img }) => `
+        <li>
+            <div class="uk-card uk-card-default uk-card-body uk-text-center uk-sortable-handle">
+            <a> ${nom} </a>
+            <a> ${prix} </a>
+            <a> ${description} </a>
+            <img src=${img}>
+            </div>
+        </li>
+        `;
+        const df = document.createDocumentFragment();
+        const elSortable = document.createElement('ul');
+        elSortable.classList.add('uk-grid-small')
+        elSortable.classList.add('uk-child-width-1-2')
+        elSortable.classList.add('uk-child-width-1-4@s')
+        elSortable.setAttribute('uk-sortable', 'handle: .uk-sortable-handle');
+        amazon_db_telephones.forEach(tel => {
+            elSortable.insertAdjacentHTML('beforeend', sortableItemTemplate({
+                nom: tel.nom,
+                prix: tel.prix,
+                description: tel.description,
+                img: tel.img
+            }));
+            df.appendChild(elSortable)
+        })
+        document.body.appendChild(df)
+    </script>
+</body>
+</html>

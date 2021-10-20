@@ -14,3 +14,6 @@ h6 {
     grid-column: 2;
 }
 
+li {
+    display: inline-block;
+}
