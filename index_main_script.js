@@ -1,3 +1,6 @@
+
+
+
 var amazon_db_telephones = [
     {
         nom: 'DOOGEE S97 PRO',
@@ -42,6 +45,7 @@ function createDomElement(type, classes, id, attributes) {
 }
 
 
+
 function createImgElement(link) {
     let img = document.createElement('img')
     img.src = link
@@ -49,11 +53,13 @@ function createImgElement(link) {
 }
 
 
+
 function createParagraphElement(text) {
     let p = document.createElement('p')
     p.innerText = text
     return p
 }
+
 
 
 function addChildrensToElement(element, childrens)  {
@@ -122,7 +128,11 @@ function build(){
     document.body.appendChild(ulPhoneList)
 }
 
+
+
 build()
+
+
 
 function addPhone() {
     var getModel = document.getElementById('inputModel').value
@@ -146,3 +156,5 @@ function addPhone() {
     var ul = document.getElementById('ulPhones')
     addTelephoneCard(objFromList, ul)
 }
+
+
