@@ -14,36 +14,47 @@ var amazon_db_telephones = [
 ]
 
 
+function createDomElement(type, classes, id, attributes) {
+    // 1 ere etape : creer l'element DOM
+    // var ulPhoneList = document.createElement('ul')
+    var domElement = document.createElement(type)
 
+    // 2 eme etape : ajouter les classes a l'element DOM
+    if (classes) {
+        console.log('classes')
+        classes.forEach(domElementClass => {
+            domElement.classList.add(domElementClass)
+        })
+    }
 
-function build(){
-    var ulPhoneList = document.createElement('ul')
-    ulPhoneList.classList.add("uk-grid-small")
-    ulPhoneList.classList.add("uk-child-width-1-2")
-    ulPhoneList.classList.add("uk-child-width-1-4@s")
-    ulPhoneList.id = "commeTuVeux"
-    // ulPhoneList.style = 'display: inline-block;'
-    ulPhoneList.setAttribute('uk-sortable', 'handle: .uk-sortable-handle')
-    ulPhoneList.setAttribute('uk-grid','')
+    // 3 eme etape : ajouter un id a l'element DOM
+    domElement.id = id
 
-    amazon_db_telephones.forEach(tel => {
-        creation(tel, ulPhoneList)
-    })
-    document.body.appendChild(ulPhoneList)
+    // 4 eme etape : ajouter les attributs a l'element DOM
+    if (attributes) {
+        console.log('attributes')
+        for (const [key, value] of Object.entries(attributes)) {
+            domElement.setAttribute(key, value)
+        }
+    }
+    return domElement
 }
 
-
-
-
-function creation(tel, ulPhoneList){
+function addTelephoneCard(tel, ulPhoneList){
     var liPhoneCard = document.createElement('li')
 
-    var divPhoneCard = document.createElement('div')
-    divPhoneCard.classList.add("uk-card")
-    divPhoneCard.classList.add("uk-card-default")
-    divPhoneCard.classList.add("uk-card-body")
-    divPhoneCard.classList.add("uk-text-center")
-    divPhoneCard.classList.add("uk-sortable-handle")
+    var divPhoneCard = createDomElement(
+        'div',
+        [
+            "uk-card",
+            "uk-card-default",
+            "uk-card-body",
+            "uk-text-center",
+            "uk-sortable-handle",
+        ],
+        null,
+        null
+    )
 
     var imgPhoneCard = document.createElement('img')
     imgPhoneCard.src = tel.img
@@ -67,6 +78,33 @@ function creation(tel, ulPhoneList){
     ulPhoneList.appendChild(liPhoneCard)
 }
 
+function build(){
+
+    var ulPhoneList = createDomElement(
+        // type
+        'ul',
+        // classes
+        ["uk-grid-small", "uk-child-width-1-2", "uk-child-width-1-4@s"],
+        // id
+        'commeTuVeux',
+        // attributes
+        {
+            'uk-sortable': 'handle: .uk-sortable-handle',
+            'uk-grid' : ''
+        }
+    )
+    amazon_db_telephones.forEach(tel => {
+        addTelephoneCard(tel, ulPhoneList)
+    })
+    document.body.appendChild(ulPhoneList)
+}
+
+build()
+
+
+
+
+
 
 
 function addPhone() {
@@ -75,20 +113,25 @@ function addPhone() {
     var getDescription = document.getElementById('inputDescription').value
     var getImg = document.getElementById('inputImg').value
     var bt = document.getElementById('addPhoneButton')
+
     var obj = {
         nom: getModel,
         prix: getPrice,
         description: getDescription,
         img: getImg
     }
-    amazon_db_telephones.push(obj)
+
+    // amazon_db_telephones.push(obj)
+
     var ul = document.getElementById('commeTuVeux')
-    creation(obj, ul)
-    console.log(amazon_db_telephones.length)
+    addTelephoneCard(obj, ul)
+
+    // console.log(amazon_db_telephones.length)
     // 'nom: ${getModel.value}', 'prix:${getPrice.value}', 'description:${getDescription.value}', 'img:${getImg.value}'
     // bt.setAttribute("style", `grid-row: ${row};`)
 }
 
 
 
-build()
+
+
