@@ -9,7 +9,7 @@ var amazon_db_telephones = [
         nom: 'SAMSUNG GALAXY A12',
         prix: 336,
         description: 'android14',
-        img: './tel2.webp'
+        img: 'https://images-eu.ssl-images-amazon.com/images/I/71cxr2ga5JL.__AC_SX300_SY300_QL70_ML2_.jpg'
     },
 ]
 
@@ -42,13 +42,9 @@ function createDomElement(type, classes, id, attributes) {
 }
 
 
-function createImgElement(src, url) {
+function createImgElement(link) {
     let img = document.createElement('img')
-    if (src) {
-        img.src = src
-    } else if (url) {
-        img.url = url
-    }
+    img.src = link
     return img
 }
 
@@ -65,6 +61,8 @@ function addChildrensToElement(element, childrens)  {
         element.appendChild(child)
     })
 }
+
+
 
 function addTelephoneCard(tel, ulPhoneList){
 
@@ -83,7 +81,7 @@ function addTelephoneCard(tel, ulPhoneList){
         null
     )
 
-    var imgPhoneCard = createImgElement(tel.img, null)
+    var imgPhoneCard = createImgElement(tel.img)
     var nomPhoneCard = createParagraphElement(tel.nom)
     var prixPhoneCard = createParagraphElement(tel.prix)
     var descriptionPhoneCard = createParagraphElement(tel.description)
@@ -100,6 +98,8 @@ function addTelephoneCard(tel, ulPhoneList){
     addChildrensToElement(liPhoneCard, [divPhoneCard])
     addChildrensToElement(ulPhoneList, [liPhoneCard])
 }
+
+
 
 function build(){
 
@@ -124,12 +124,6 @@ function build(){
 
 build()
 
-
-
-
-
-
-
 function addPhone() {
     var getModel = document.getElementById('inputModel').value
     var getPrice = document.getElementById('inputPrice').value
@@ -144,17 +138,11 @@ function addPhone() {
         img: getImg
     }
 
-    // amazon_db_telephones.push(obj)
+    amazon_db_telephones.push(obj)
+    var objFromList = amazon_db_telephones.slice(-1)[0]
+
+    console.log(objFromList)
 
     var ul = document.getElementById('ulPhones')
-    addTelephoneCard(obj, ul)
-
-    // console.log(amazon_db_telephones.length)
-    // 'nom: ${getModel.value}', 'prix:${getPrice.value}', 'description:${getDescription.value}', 'img:${getImg.value}'
-    // bt.setAttribute("style", `grid-row: ${row};`)
+    addTelephoneCard(objFromList, ul)
 }
-
-
-
-
-
