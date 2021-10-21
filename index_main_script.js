@@ -14,6 +14,7 @@ var amazon_db_telephones = [
 ]
 
 
+
 function createDomElement(type, classes, id, attributes) {
     // 1 ere etape : creer l'element DOM
     // var ulPhoneList = document.createElement('ul')
@@ -40,7 +41,33 @@ function createDomElement(type, classes, id, attributes) {
     return domElement
 }
 
+
+function createImgElement(src, url) {
+    let img = document.createElement('img')
+    if (src) {
+        img.src = src
+    } else if (url) {
+        img.url = url
+    }
+    return img
+}
+
+
+function createParagraphElement(text) {
+    let p = document.createElement('p')
+    p.innerText = text
+    return p
+}
+
+
+function addChildrensToElement(element, childrens)  {
+    childrens.forEach(child => {
+        element.appendChild(child)
+    })
+}
+
 function addTelephoneCard(tel, ulPhoneList){
+
     var liPhoneCard = document.createElement('li')
 
     var divPhoneCard = createDomElement(
@@ -56,26 +83,22 @@ function addTelephoneCard(tel, ulPhoneList){
         null
     )
 
-    var imgPhoneCard = document.createElement('img')
-    imgPhoneCard.src = tel.img
+    var imgPhoneCard = createImgElement(tel.img, null)
+    var nomPhoneCard = createParagraphElement(tel.nom)
+    var prixPhoneCard = createParagraphElement(tel.prix)
+    var descriptionPhoneCard = createParagraphElement(tel.description)
 
-    var nomPhoneCard = document.createElement('p')
-    nomPhoneCard.innerText = tel.nom
-
-    var prixPhoneCard = document.createElement('p')
-    prixPhoneCard.innerText = tel.prix
-
-    var descriptionPhoneCard = document.createElement('p')
-    descriptionPhoneCard.innerText = tel.description
-
-    divPhoneCard.appendChild(imgPhoneCard)
-    divPhoneCard.appendChild(nomPhoneCard)
-    divPhoneCard.appendChild(prixPhoneCard)
-    divPhoneCard.appendChild(descriptionPhoneCard)
-
-    liPhoneCard.appendChild(divPhoneCard)
-
-    ulPhoneList.appendChild(liPhoneCard)
+    addChildrensToElement(
+        divPhoneCard,
+        [
+            imgPhoneCard,
+            nomPhoneCard,
+            prixPhoneCard,
+            descriptionPhoneCard
+        ]
+    )
+    addChildrensToElement(liPhoneCard, [divPhoneCard])
+    addChildrensToElement(ulPhoneList, [liPhoneCard])
 }
 
 function build(){
@@ -86,7 +109,7 @@ function build(){
         // classes
         ["uk-grid-small", "uk-child-width-1-2", "uk-child-width-1-4@s"],
         // id
-        'commeTuVeux',
+        'ulPhones',
         // attributes
         {
             'uk-sortable': 'handle: .uk-sortable-handle',
@@ -123,7 +146,7 @@ function addPhone() {
 
     // amazon_db_telephones.push(obj)
 
-    var ul = document.getElementById('commeTuVeux')
+    var ul = document.getElementById('ulPhones')
     addTelephoneCard(obj, ul)
 
     // console.log(amazon_db_telephones.length)

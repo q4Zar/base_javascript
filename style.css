@@ -1,9 +1,9 @@
 
-div.step1 {
+/* div.step1 {
     display: grid;
     grid-template-columns: repeat(10,6vw);
     grid-template-rows: repeat(10,6vh);
-}
+} */
 
 h6 {
     background-color: blue;
