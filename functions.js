@@ -17,12 +17,15 @@ console.log(resCarre)
 
 let obj = {
     name: 'Damien',
-    language: 'Javascript'
+    language: 'Javascript',
 }
+
 function addFieldToObj(obj, key, val) {
     obj[key] = val
+    obj['year'] = 2021
     return obj
 }
+
 let resAdd = addFieldToObj(obj, 'year', 2021)
 console.log(resAdd)
 // console.log(addFieldToObj(obj, 'year', 2021))
