@@ -5,7 +5,7 @@ var mangas = [
     }
 ]
 window.localStorage.setItem('mangas', JSON.stringify(mangas));
-mangas = null
+// mangas = null
 
 function createDomElement(type, classes, id, attributes) {
     var domElement = document.createElement(type)
